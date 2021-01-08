@@ -77,6 +77,7 @@
             id: data.id,
             name: data.name,
             title: data.title,
+            description: data.description,
             target: data.target,
             url: data.url || "#",
             children: data.children || [],

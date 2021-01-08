@@ -9,6 +9,10 @@
     <key alias="linkTitle_label">Link Title</key>
     <key alias="linkTitle_description">The title to display for the link, defaults to node name</key>
     <key alias="linkTitle_placeholder">Enter a name...</key>
+    <!-- Link description -->
+    <key alias="linkDescription_label">Link description</key>
+    <key alias="linkDescription_description">Description shown on level 2 menus</key>
+    <key alias="linkDescription_placeholder">Enter description here...</key>
     <!-- Link target -->
     <key alias="linkTarget_label">Link Target</key>
     <key alias="linkTarget_option_blankLabel">Opens the linked document in a new window or tab</key>

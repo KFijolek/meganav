@@ -18,6 +18,8 @@ namespace Cogworks.Meganav.Web.Controllers.API
                 {
                     id = entity.Id,
                     name = entity.Name,
+                    description = entity.ContentType.Description,
+                    desc = entity.HasProperty("description") && entity.GetValue<bool>("description"),
                     icon = entity.ContentType.Icon,
                     url = Umbraco.Url(entity.Id),
                     published = entity.Published,

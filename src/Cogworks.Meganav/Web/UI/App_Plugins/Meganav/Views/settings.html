@@ -1,7 +1,6 @@
 ﻿<div ng-controller="Cogworks.Meganav.MeganavSettingsController" class="umb-overlay-body umb-modal">
 
     <umb-control-group label="@content_urls">
-
         <input type="text"
                name="linkUrl"
                localize="placeholder"
@@ -23,8 +22,20 @@
                localize="placeholder"
                placeholder="@placeholders_entername"
                class="umb-editor umb-textstring"
-               ng-model="target.title"
-               ng-required="!target.name" />
+               ng-model="target.title" />
+
+        <p>
+            <strong>Link description:</strong>
+        </p>
+
+        <br />
+
+        <input type="text"
+               localize="placeholder"
+               placeholder="Enter description here"
+               class="umb-editor umb-textstring"
+               ng-model="target.description"
+               ng-required="false" />
 
     </umb-control-group>
 
