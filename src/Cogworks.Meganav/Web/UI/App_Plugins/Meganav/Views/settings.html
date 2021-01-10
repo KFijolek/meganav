@@ -24,6 +24,9 @@
                class="umb-editor umb-textstring"
                ng-model="target.title" />
 
+        <br />
+        <br />
+
         <p>
             <strong>Link description:</strong>
         </p>
@@ -76,5 +79,24 @@
         </umb-tree>
 
     </div>
+
+    <umb-control-group label="Submenu background image">
+
+        <p>Used in background in submenu below this item</p>
+        <ul class="unstyled list-icons" ng-if="image">
+            <li>
+                <i class="icon icon-delete red hover-show pull-right" ng-click="removeImage()"></i>
+                {{image.name}}
+                <img src="{{image.thumbnail}}" style="{{image.thumbStyle}}" />
+            </li>
+        </ul>
+        <ul class="unstyled list-icons">
+            <li>
+                <i class="icon icon-add blue"></i>
+                <a href ng-click="openMediaPicker()" prevent-default>Select</a>
+            </li>
+        </ul>
+
+    </umb-control-group>
 
 </div>

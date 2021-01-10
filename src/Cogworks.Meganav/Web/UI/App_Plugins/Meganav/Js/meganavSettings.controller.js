@@ -1,4 +1,4 @@
-﻿function MeganavSettings($scope, $controller, meganavResource) {
+﻿function MeganavSettings($scope, $controller, meganavResource, dialogService, entityResource) {
 
     $scope.dialogOptions = {
         currentTarget: null
@@ -26,12 +26,39 @@
         $scope.dialogTreeEventHandler.unbind("treeNodeSelect", nodeSelectHandler);
     });
 
-    function nodeSelectHandler (ev, args) {
+    function nodeSelectHandler(ev, args) {
         if (!args.node.metaData.listViewNode) {
             meganavResource.getById(args.node.id).then(function (response) {
                 angular.extend($scope.target, response.data);
             });
         }
+    }
+
+    // Handle image selection
+
+    $scope.openMediaPicker = function () {
+        dialogService.mediaPicker({ callback: populateImage });
+    }
+
+    function populateImage(item) {
+        $scope.image = item;
+        $scope.target.imageId = item.id;
+        $scope.target.imageUrl = item.image;
+    }
+
+    $scope.removeImage = function () {
+        $scope.image = undefined;
+        $scope.target.imageId = 0;
+        $scope.target.image = "";
+    }
+
+    // Load image from resources on initial data load
+    console.log('Image?', $scope.image, $scope.target);
+    if ($scope.target.imageId > 0) {
+        entityResource.getById($scope.target.imageId, "Media").then(function (item) {
+            $scope.image = item;
+            console.log('loaded', $scope, item);
+        });
     }
 }
 

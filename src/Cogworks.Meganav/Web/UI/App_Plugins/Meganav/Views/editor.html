@@ -17,7 +17,7 @@
         <a href="" class="umb-node-preview-add" ng-click="add()" prevent-default>
             <localize key="general_add">Add</localize>
         </a>
-        
+
     </ng-form>
 
     <!-- repeatable nav item template -->
@@ -32,6 +32,7 @@
 
                 <div class="umb-node-preview__name">
                     {{item.title || item.name}}
+                    <i ng-if="item.description">{{item.description}}</i>
                 </div>
 
                 <div class="umb-node-preview__description">

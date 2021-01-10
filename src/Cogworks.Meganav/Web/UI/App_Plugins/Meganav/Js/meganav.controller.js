@@ -1,7 +1,7 @@
 ﻿function Meganav($scope, meganavResource) {
 
     $scope.items = [];
-    
+
     if (!_.isEmpty($scope.model.value)) {
         // retreive the saved items
         $scope.items = $scope.model.value;
@@ -37,7 +37,7 @@
         $scope.model.value = $scope.items;
     });
 
-    function getItemEntities (items) {
+    function getItemEntities(items) {
         _.each(items, function (item) {
             if (item.id) {
                 meganavResource.getById(item.id).then(function (response) {
@@ -51,7 +51,7 @@
         });
     }
 
-    function openSettings (item, callback) {
+    function openSettings(item, callback) {
         // assign value to new empty object to break refs
         // prevent accidentally changing old values
         $scope.settingsOverlay = {
@@ -67,17 +67,19 @@
         }
     }
 
-    function closeSettings () {
+    function closeSettings() {
         $scope.settingsOverlay.show = false;
         $scope.settingsOverlay = null;
     }
 
-    function buildNavItem (data) {
+    function buildNavItem(data) {
         return {
             id: data.id,
             name: data.name,
             title: data.title,
             description: data.description,
+            imageId: data.imageId,
+            imageUrl: data.imageUrl,
             target: data.target,
             url: data.url || "#",
             children: data.children || [],

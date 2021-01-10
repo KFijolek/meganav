@@ -13,6 +13,8 @@ namespace Cogworks.Meganav.Models
 
         public string Description { get; set; }
 
+        public string ImageUrl { get; set; }
+        public int ImageId { get; set; }
         public string Target { get; set; }
 
         public string Url { get; set; }
