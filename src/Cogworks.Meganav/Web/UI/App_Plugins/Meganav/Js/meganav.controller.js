@@ -73,6 +73,7 @@
     }
 
     function buildNavItem(data) {
+        console.log('data', data);
         return {
             id: data.id,
             name: data.name,

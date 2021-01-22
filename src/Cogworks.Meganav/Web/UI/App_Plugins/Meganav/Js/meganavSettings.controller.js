@@ -1,4 +1,4 @@
-﻿function MeganavSettings($scope, $controller, meganavResource, dialogService, entityResource) {
+﻿function MeganavSettings($scope, $controller, meganavResource, dialogService, mediaResource) {
 
     $scope.dialogOptions = {
         currentTarget: null
@@ -53,9 +53,8 @@
     }
 
     // Load image from resources on initial data load
-    console.log('Image?', $scope.image, $scope.target);
     if ($scope.target.imageId > 0) {
-        entityResource.getById($scope.target.imageId, "Media").then(function (item) {
+        mediaResource.getById($scope.target.imageId, "Media").then(function (item) {
             $scope.image = item;
             console.log('loaded', $scope, item);
         });
